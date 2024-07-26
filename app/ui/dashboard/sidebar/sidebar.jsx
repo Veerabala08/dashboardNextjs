@@ -86,14 +86,13 @@ function SideBar() {
                <Image className={styles.userImage} src="/avator.png" alt=""
           width="50"
           height="50" />
-          </div>
           <div className={styles.userDetail}>
-               <span className={styles.username}>VeeraBala</span>
+               <span className={styles.username}>Nirupuma</span>
                <span className={styles.userTitle}>Admin</span>
-
+          </div>
           </div>
 
-          <ul>
+          <ul className={styles.list}>
                {menuItems.map((cat)=>(
                 <li key={cat.title}>
                     <span className={styles.cat}>
@@ -105,6 +104,9 @@ function SideBar() {
                 </li>    
                ))}
           </ul>
+          <button className={styles.logout}>
+            <MdLogout />
+            Logout</button>
          </div>
         </> 
      );
