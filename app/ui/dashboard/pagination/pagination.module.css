@@ -1,0 +1,13 @@
+.container{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button{
+    padding:5px 10px;
+    cursor: pointer;
+    background-color: rgb(82, 82, 211);
+    border: none;
+    border-radius: 5px;
+}
