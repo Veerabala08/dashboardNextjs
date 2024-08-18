@@ -1,11 +1,16 @@
+// "use server"
 import styles from "@/app/ui/dashboard/users/users.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
+import { FetchUser } from "@/app/lib/data";
 
-function Users() {
-    const users = []
+async function Users() {
+    const users = await FetchUser()
+    console.log(users)
+    console.log("hi")
+    const deleteUser = ()=>{}
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -26,27 +31,7 @@ function Users() {
           </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Veerabala</td>
-            <td>vb@gmail.com</td>
-            <td>kumbakonam</td>
-            <td>Admin</td>
-            <td>active</td>
-            <td>
-              <div className={styles.buttons}>
-                <Link href={`/dashboard/users/test`}>
-                  <button className={`${styles.button} ${styles.view}`}>
-                    View
-                  </button>
-                </Link>
-                {/* <form action={deleteProduct}> */}
-                <input type="hidden" name="id"  />
-                <button className={`${styles.button} ${styles.delete}`}>
-                  Delete
-                </button>
-              </div>
-            </td>
-          </tr>
+        
           {users.map((user) => (
             <tr key={user.id}>
               <td>
@@ -72,12 +57,12 @@ function Users() {
                       View
                     </button>
                   </Link>
-                  <form action={deleteUser}>
+                  {/* <form action={deleteUser}> */}
                     <input type="hidden" name="id" value={user.id} />
                     <button className={`${styles.button} ${styles.delete}`}>
                       Delete
                     </button>
-                  </form>
+                  {/* </form> */}
                 </div>
               </td>
             </tr>
